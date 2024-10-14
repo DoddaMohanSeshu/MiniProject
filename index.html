@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Movie Ticket Booking - Home</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <h1>Movie Ticket Booking</h1>
+    </header>
+
+    <main>
+        <section class="movie-list">
+            <h2>Select a Movie</h2>
+            <div class="movies">
+                <div class="movie">
+                    <img src="movie1.jpg" alt="Salaar ">
+                    <h3>Movie 1</h3>
+                    <button class="select-btn" onclick="redirectToBooking('Salaar')">Book Now</button>
+                </div>
+                <div class="movie">
+                    <img src="movie2.jpg" alt="Devara ">
+                    <h3>Movie 2</h3>
+                    <button class="select-btn" onclick="redirectToBooking('Devara')">Book Now</button>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p>© 2024 Movie Ticket Booking</p>
+    </footer>
+
+    <script>
+        function redirectToBooking(movieName) {
+            window.location.href = `booking.html?movie=${encodeURIComponent(movieName)}`;
+        }
+    </script>
+</body>
+</html>

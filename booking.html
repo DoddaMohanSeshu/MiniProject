@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Movie Ticket Booking - Book Now</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <h1>Movie Ticket Booking</h1>
+    </header>
+
+    <main>
+        <section class="booking-form">
+            <h2>Book Your Tickets</h2>
+            <form id="ticketForm">
+                <label for="movie">Selected Movie</label>
+                <input type="text" id="movie" name="movie" readonly>
+
+                <label for="name">Your Name</label>
+                <input type="text" id="name" name="name" required>
+
+                <label for="email">Email</label>
+                <input type="email" id="email" name="email" required>
+
+                <label for="tickets">Number of Tickets</label>
+                <input type="number" id="tickets" name="tickets" min="1" required>
+
+                <button type="submit">Book Now</button>
+            </form>
+        </section>
+    </main>
+
+    <footer>
+        <p>© 2024 Movie Ticket Booking</p>
+    </footer>
+
+    <script>
+        // Get movie name from the URL parameters
+        const urlParams = new URLSearchParams(window.location.search);
+        const movieName = urlParams.get('movie');
+        if (movieName) {
+            document.getElementById('movie').value = movieName;
+        }
+
+        // Form validation
+        document.getElementById('ticketForm').addEventListener('submit', function (e) {
+            e.preventDefault();
+
+            const name = document.getElementById('name').value;
+            const email = document.getElementById('email').value;
+            const tickets = document.getElementById('tickets').value;
+
+            // Simple validation
+            if (!name || !email || tickets <= 0) {
+                alert('Please fill all the fields with valid details.');
+                return;
+            }
+
+            alert(`Booking successful for ${movieName}!\nName: ${name}\nTickets: ${tickets}`);
+        });
+    </script>
+</body>
+</html>
